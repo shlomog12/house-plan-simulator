@@ -1,0 +1,9 @@
+{
+  "name": "house-plan-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/house-plan-e2e/src",
+  "implicitDependencies": ["house-plan"],
+  "// targets": "to see all targets run: nx show project house-plan-e2e --web",
+  "targets": {}
+}
