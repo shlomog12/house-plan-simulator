@@ -1,24 +1,60 @@
-/* libs/house-plan/feature/new-project-form/src/lib/new-project-form.component.scss */
-
 :host {
-  display: block;
-  max-width: 500px;
-  margin: 2rem auto;
-}
-
-.project-form {
-  padding: 2rem;
-  border: 1px solid #e0e0e0;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f4f7f6;
   direction: rtl;
 }
 
-h2 {
+.app-global-header {
+  background-color: #34495e;
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  z-index: 10; 
+
+  .logo-link {
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+  }
+}
+
+.app-main-content {
+  flex-grow: 1;
+}
+
+
+.new-project-container {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+
+
+.project-form {
+  max-width: 550px;
+  margin: 2rem auto;
+  padding: 2.5rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  background-color: #ffffff;
+  flex-shrink: 0;
+}
+
+.form-title {
   text-align: center;
   color: #2c3e50;
   margin-bottom: 1.5rem;
+  font-size: 1.6rem;
+  font-weight: 600;
 }
 
 hr {
@@ -31,58 +67,73 @@ hr {
 .field-container label {
   display: block;
   font-size: 0.9rem;
-  color: #34495e;
+  color: #555;
   margin-bottom: 0.4rem;
+  font-weight: 500;
 }
 
 .field-container input[type="date"] {
   width: 100%;
-  padding: 10px 12px;
-  border: 1px solid #bdc3c7;
-  border-radius: 6px;
+  padding: 12px 14px;
+  border: 1px solid #c7d0d8;
+  border-radius: 8px;
   font-size: 1rem;
   margin-bottom: 1.5rem;
+  background-color: #fdfdfd;
+  &:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.15);
+  }
 }
 
 .error-message {
   color: #e74c3c;
-  font-size: 0.85rem;
-  margin-top: -1rem;
+  font-size: 0.8rem;
+  margin-top: -1rem; 
   margin-bottom: 1.5rem;
+  text-align: start;
 }
 
 .success-message {
   text-align: center;
   padding: 1rem;
-  background-color: #e8f9f0;
-  color: #27ae60;
+  background-color: #d4edda;
+  color: #155724;
   border-radius: 8px;
   margin-top: 1.5rem;
   font-weight: bold;
+  border: 1px solid #c3e6cb;
+}
+
+.submit-area {
+  margin-top: 2rem;
 }
 
 button {
   width: 100%;
-  padding: 12px;
+  padding: 14px;
   font-size: 1.1rem;
   font-weight: bold;
-  background-color: #3498db;
+  background-color: #007bff;
   color: white;
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s, opacity 0.3s;
-
+  transition: background-color 0.3s, opacity 0.3s, box-shadow 0.3s;
+  
   &:hover:not(:disabled) {
-    background-color: #2980b9;
+    background-color: #0056b3;
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2);
   }
-
+  
   &:disabled {
-    background-color: #95a5a6;
+    background-color: #cccccc;
     cursor: not-allowed;
+    color: #666;
   }
 
   &.loading {
-    opacity: 0.7;
+    opacity: 0.8;
   }
 }

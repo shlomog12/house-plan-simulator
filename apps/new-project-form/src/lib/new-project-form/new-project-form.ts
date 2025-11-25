@@ -3,6 +3,7 @@ import { FormBuilder, Validators, FormGroup, ReactiveFormsModule } from '@angula
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { TextfieldComponent } from '@house-plan/ui-components';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 interface NewProjectData {
   projectName: string | null;
@@ -27,6 +28,7 @@ export class NewProjectForm implements OnInit {
   submissionSuccess = signal<boolean>(false);
 
   private destroyRef = inject(DestroyRef);
+  private router: Router = inject(Router);
 
   constructor() {
     this.createForm();
@@ -76,5 +78,9 @@ export class NewProjectForm implements OnInit {
 
   private getTodayDate(): string {
     return new Date().toISOString().split('T')[0];
+  }
+
+  public backToHome(){
+    this.router.navigate(['/home']);
   }
 }

@@ -1,65 +1,85 @@
-<form [formGroup]="projectForm" (ngSubmit)="onSubmit()" class="project-form">
-  <h2>יצירת פרויקט אדריכלי חדש 🏗️</h2>
-  <hr>
 
-  <hp-textfield 
-    label="שם הפרויקט *" 
-    [placeholder]="'לדוגמה: פרויקט מרכז העיר'"
-    formControlName="projectName"
-  ></hp-textfield>
-  @if (getControlError('projectName', 'required')) { <div class="error-message">
-    </div>
-  }
-  
-  <hp-textfield 
-    label="שם הלקוח" 
-    placeholder="שם מלא או כינוי"
-    formControlName="clientName"
-  ></hp-textfield>
-  @if (getControlError('clientName', 'minlength')) { <div class="error-message">
-      שם הלקוח חייב להכיל לפחות 2 תווים.
-    </div>
-  }
 
-  <div class="field-container">
-    <label for="startDate">תאריך התחלה *</label>
-    <input id="startDate" type="date" formControlName="startDate" />
-  </div>
-  @if (getControlError('startDate', 'required')) { <div class="error-message">
-      תאריך התחלה הוא שדה חובה.
-    </div>
-  }
+    <header class="app-global-header">
+        <a routerLink="/home" class="logo-link"  (click)="backToHome()">
+            🏠 House Plan
+        </a>
+    </header>
 
-  <hp-textfield 
-    label="תקציב משוער (₪) *" 
-    placeholder="לדוגמה: 500000"
-    type="number"
-    formControlName="budget"
-  ></hp-textfield>
-  @if (getControlError('budget', 'required')) { <div class="error-message">
-      שדה התקציב הוא שדה חובה.
-    </div>
-  }
-  @if (getControlError('budget', 'min')) { <div class="error-message">
-      התקציב חייב להיות מעל 1,000 ₪.
-    </div>
-  }
 
-  <div class="submit-area">
-    <button 
-      type="submit" 
-      [disabled]="projectForm.invalid || isLoading()"
-      [class.loading]="isLoading()"
-    >
-      @if (!isLoading()) { <span>צור פרויקט</span>
-      } @else { <span>שולח...</span>
-      }
-    </button>
-  </div>
-  
-  @if (submissionSuccess()) { <div class="success-message">
-      ✅ הפרויקט **{{ projectForm.get('projectName')?.value || 'החדש' }}** נוצר בהצלחה!
-    </div>
-  }
+<div class="new-project-container">
 
-</form>
+
+  <form [formGroup]="projectForm" (ngSubmit)="onSubmit()" class="project-form">
+    <h2 class="form-title">פרטי פרויקט</h2>
+
+    <hp-textfield 
+      label="שם הפרויקט *" 
+      placeholder="לדוגמה: פרויקט מרכז העיר"
+      formControlName="projectName"
+    ></hp-textfield>
+    @if (getControlError('projectName', 'required')) { 
+      <div class="error-message">
+        שם הפרויקט הוא שדה חובה.
+      </div>
+    }
+    
+    <hp-textfield 
+      label="שם הלקוח" 
+      placeholder="שם מלא או כינוי"
+      formControlName="clientName"
+    ></hp-textfield>
+    @if (getControlError('clientName', 'minlength')) { 
+      <div class="error-message">
+        שם הלקוח חייב להכיל לפחות 2 תווים.
+      </div>
+    }
+
+    <div class="field-container">
+      <label for="startDate">תאריך התחלה *</label>
+      <input id="startDate" type="date" formControlName="startDate" />
+    </div>
+    @if (getControlError('startDate', 'required')) { 
+      <div class="error-message">
+        תאריך התחלה הוא שדה חובה.
+      </div>
+    }
+
+    <hp-textfield 
+      label="תקציב משוער (₪) *" 
+      placeholder="לדוגמה: 500000"
+      type="number"
+      formControlName="budget"
+    ></hp-textfield>
+    @if (getControlError('budget', 'required')) { 
+      <div class="error-message">
+        שדה התקציב הוא שדה חובה.
+      </div>
+    }
+    @if (getControlError('budget', 'min')) { 
+      <div class="error-message">
+        התקציב חייב להיות מעל 1,000 ₪.
+      </div>
+    }
+
+    <div class="submit-area">
+      <button 
+        type="submit" 
+        [disabled]="projectForm.invalid || isLoading()"
+        [class.loading]="isLoading()"
+      >
+        @if (!isLoading()) { 
+          <span>צור פרויקט</span>
+        } @else { 
+          <span>שולח...</span>
+        }
+      </button>
+    </div>
+    
+    @if (submissionSuccess()) { 
+      <div class="success-message">
+        ✅ הפרויקט **{{ projectForm.get('projectName')?.value || 'החדש' }}** נוצר בהצלחה!
+      </div>
+    }
+  </form>
+</div>

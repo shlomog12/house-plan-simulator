@@ -17,10 +17,6 @@ export class HomePage {
   constructor(private router: Router) {}
 
   createNewProject() {
-    console.log("newProject");
-    console.log("newProject");
-    console.log("newProject");
-    
     this.router.navigate(['/new-project']);
   }
 }
