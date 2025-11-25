@@ -1,0 +1,16 @@
+<div class="field-container" [class.focused]="isFocused()">
+  
+  @if (label()) {  <label [attr.for]="id()">{{ label() }}</label>
+  }
+  
+  <input 
+    #inputElement
+    [id]="id()"
+    [type]="type()"
+    [placeholder]="placeholder()"
+    [disabled]="disabled()"
+    (input)="onModelChange($event)" 
+    (blur)="onTouched()" 
+    (focus)="isFocused.set(true)"
+  />
+</div>

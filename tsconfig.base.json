@@ -15,7 +15,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@house-plan/home-page": ["apps/home-page/src/index.ts"]
+      "@house-plan/home-page": ["apps/home-page/src/index.ts"],
+      "@house-plan/ui-components": ["apps/ui/src/index.ts"],
+      "@house-plan/new-project-form": ["apps/new-project-form/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

@@ -1,0 +1,28 @@
+/* libs/house-plan/ui/ui-components/src/lib/textfield.component.scss */
+
+.field-container {
+  margin-bottom: 1.5rem;
+  label {
+    display: block;
+    font-size: 0.9rem;
+    color: #34495e;
+    margin-bottom: 0.4rem;
+    transition: color 0.3s;
+  }
+  input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #bdc3c7;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    &:focus {
+      outline: none;
+      border-color: #007bff;
+      box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+    }
+  }
+  &.focused label {
+    color: #007bff;
+  }
+}

@@ -18,6 +18,8 @@ export class HomePage {
 
   createNewProject() {
     console.log("newProject");
+    console.log("newProject");
+    console.log("newProject");
     
     this.router.navigate(['/new-project']);
   }
